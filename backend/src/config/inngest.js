@@ -1,6 +1,7 @@
 import {Inngest} from "inngest"
 import { connectDB } from "./db"
 import { User } from "@clerk/express";
+import { User } from "../models/user.model";
 
 export const inngest = new Inngest({ id : "PingR"})
 
