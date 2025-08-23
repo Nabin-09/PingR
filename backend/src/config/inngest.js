@@ -1,11 +1,10 @@
 import {Inngest} from "inngest"
-import { connectDB } from "./db"
-import { User } from "@clerk/express";
-import { User } from "../models/user.model";
+import { connectDB } from "./db.js"
+import { User } from "../models/user.model.js";
 
-export const inngest = new Inngest({ id : "PingR"})
+export const inngest = new Inngest({ id : "PingR"});
 
-syncUser = inngest.createFunction(
+const syncUser = inngest.createFunction(
     {id : "sync-user"},
     {event : 'clerk/user.created'},
     async ([event]) => {
