@@ -1,9 +1,13 @@
+// import '../instrument.mjs'
 import express from "express";
 import { ENV } from "./config/env.js";
 import { connectDB } from "./config/db.js";
 import { clerkMiddleware } from "@clerk/express"
 import { functions, inngest } from "./config/inngest.js";
 import {serve} from "inngest/express"
+import chatRoutes from './routes/chat.route.js'
+import * as Sentry from '@sentry/node'
+
 
 const app = express();
 
@@ -11,12 +15,20 @@ const app = express();
 app.use(express.json());
 app.use(clerkMiddleware())
 
-app.use('/api/inngest' , serve({client : inngest,  functions}))
+app.get('/debug-sentry' , (req , res)=>{
+    throw new Error('Pehla Sentry Error')
+})
 
-const PORT = process.env.PORT;
+
 app.get("/" , (req , res)=>{
      res.send("Hello World")
 });
+
+app.use('/api/inngest' , serve({client : inngest,  functions}))
+app.use('/api/chat' , chatRoutes)
+
+Sentry.setupExpressErrorHandler(app);
+
 
 const startServer = async ()=>{
     try {
