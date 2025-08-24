@@ -4,8 +4,8 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "dev": "NODE_OPTIONS='--import ./instrument.mjs' nodemon src/server.js",
+    "start": "NODE_OPTIONS='--import ./instrument.mjs' node src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "inngest": "^3.40.1",
     "mongoose": "^8.18.0",
     "nodemon": "^3.1.10",
+    "sentry": "^0.1.2",
     "stream-chat": "^9.17.0"
   }
 }
