@@ -2,7 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { ClerkProvider } from '@clerk/clerk-react'
-import {BrowserRouter} from "react-router-dom"
 import App from './App.jsx'
 
 // Import your Publishable Key
@@ -15,9 +14,7 @@ if (!PUBLISHABLE_KEY) {
 createRoot(document.getElementById('root')).render(
   <StrictMode>
      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-        <BrowserRouter>
-          <App/>
-        </BrowserRouter>
+        <App />
       </ClerkProvider>
   </StrictMode>,
 )
