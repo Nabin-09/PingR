@@ -17,6 +17,7 @@ createRoot(document.getElementById('root')).render(
      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
         <BrowserRouter>
           <App/>
+          {/* //App */}
         </BrowserRouter>
       </ClerkProvider>
   </StrictMode>,
