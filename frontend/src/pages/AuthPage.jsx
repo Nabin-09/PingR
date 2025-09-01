@@ -33,7 +33,7 @@ const AuthPage = () => {
               <span>Secure & Private</span>
             </div>
         </div>
-        <SignInButton>
+        <SignInButton mode='modal'>
             <button className='cta-button'>
               Get Started with PingR
               <span className='button-arrow'>→</span>
